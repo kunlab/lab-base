@@ -1,1 +1,1 @@
-# lab-core
+# lab-base
