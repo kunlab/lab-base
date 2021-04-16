@@ -1,13 +1,14 @@
-package com.kunlab.core.exception;
+package com.kunlab.base.common;
 
-import com.kunlab.core.constant.IResultCodeEnum;
+import com.kunlab.base.core.constant.IResultCodeEnum;
+import com.kunlab.base.core.exception.BaseException;
 
 /**
- * 业务异常类
+ * 自定义业务异常类
  * @author likun
  * @date 2021/4/16
  */
-public class AppException extends BaseException{
+public class AppException extends BaseException {
 
     //错误码
     private String code;

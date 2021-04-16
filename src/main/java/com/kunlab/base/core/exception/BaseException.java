@@ -1,4 +1,4 @@
-package com.kunlab.core.exception;
+package com.kunlab.base.core.exception;
 
 /**
  * 基础异常类，所有自定义业务异常类都需要继承此类

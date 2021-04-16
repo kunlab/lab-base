@@ -1,4 +1,4 @@
-package com.kunlab.core.constant;
+package com.kunlab.base.core.constant;
 
 /**
  * 结果码枚举接口，所有自定义结果码枚举需要实现接口
