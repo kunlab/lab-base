@@ -18,7 +18,7 @@ public class ApiReq<T> implements Serializable {
     //请求流水号
     private String serialNum;
     //业务请求参数
-    private T dto;
+    private T appVo;
 
     public String getPlatform() {
         return platform;
@@ -48,11 +48,15 @@ public class ApiReq<T> implements Serializable {
         this.serialNum = serialNum;
     }
 
-    public T getDto() {
-        return dto;
+    public void setTime(long time) {
+        this.time = time;
     }
 
-    public void setDto(T dto) {
-        this.dto = dto;
+    public T getAppVo() {
+        return appVo;
+    }
+
+    public void setAppVo(T appVo) {
+        this.appVo = appVo;
     }
 }
