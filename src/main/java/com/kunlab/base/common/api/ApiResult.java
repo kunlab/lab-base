@@ -1,5 +1,7 @@
 package com.kunlab.base.common.api;
 
+import com.kunlab.base.core.constant.Constants;
+
 import java.io.Serializable;
 
 /**
@@ -26,9 +28,9 @@ public class ApiResult<T> implements Serializable {
     //响应时间
     private long time;
     //响应码
-    private String status = "00000000";
+    private String status = Constants.RESULT_SUCCESS;
     //响应描述
-    private String message = "success";
+    private String message = Constants.SUCCESS;
     //保留字段
     private String info;
     //扩展字段
