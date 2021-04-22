@@ -1,4 +1,4 @@
-package com.kunlab.base.core.constant;
+package com.kunlab.base.common;
 
 /**
  * 常量类
@@ -6,6 +6,9 @@ package com.kunlab.base.core.constant;
  * @date 2021/4/19
  */
 public class Constants {
+
+
+    public static final String DEFAULT_CHARSET			= "UTF-8";			// 默认字符集
 
 
     public static final String SUCCESS                  = "success";        //成功

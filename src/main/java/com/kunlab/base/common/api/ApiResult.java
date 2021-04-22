@@ -1,6 +1,6 @@
 package com.kunlab.base.common.api;
 
-import com.kunlab.base.core.constant.Constants;
+import com.kunlab.base.common.Constants;
 
 import java.io.Serializable;
 

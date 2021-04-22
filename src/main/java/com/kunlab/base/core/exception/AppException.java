@@ -1,7 +1,6 @@
-package com.kunlab.base.common;
+package com.kunlab.base.core.exception;
 
 import com.kunlab.base.core.constant.IResultCodeEnum;
-import com.kunlab.base.core.exception.BaseException;
 
 /**
  * 自定义业务异常类
