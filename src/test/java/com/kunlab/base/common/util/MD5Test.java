@@ -1,6 +1,5 @@
 package com.kunlab.base.common.util;
 
-import com.kunlab.base.common.Constants;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -39,7 +38,7 @@ public class MD5Test {
     public void verifyByString() {
         String text = "1";
         String key = "0";
-        String charsetName = Constants.DEFAULT_CHARSET;
+        String charsetName = MD5.DEFAULT_CHARSET;
         String targetHashCode = "d3d9446802a44259755d38e6d163e820";
 
         try {

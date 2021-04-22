@@ -1,6 +1,5 @@
 package com.kunlab.base.common.util;
 
-import com.kunlab.base.common.Constants;
 import com.sun.istack.internal.NotNull;
 
 import java.io.UnsupportedEncodingException;
@@ -12,6 +11,7 @@ import java.security.NoSuchAlgorithmException;
  * @date 2021/4/21
  */
 public class MD5 {
+    public static final String DEFAULT_CHARSET			= "UTF-8";
 
     /**
      * md5加密
@@ -29,7 +29,7 @@ public class MD5 {
         messageDigest.update(bytes);
         bytes = messageDigest.digest();
 
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         for(byte b : bytes) {
             int v = b & 0xFF;
             if(v < 0x10) {
@@ -116,7 +116,7 @@ public class MD5 {
      */
     public static String md5(@NotNull String text, String key) {
         try {
-            return md5(text, key, Constants.DEFAULT_CHARSET, true);
+            return md5(text, key, DEFAULT_CHARSET, true);
         } catch (UnsupportedEncodingException ignore) {
             //no happen
             return null;
@@ -130,7 +130,7 @@ public class MD5 {
      */
     public static String md5(@NotNull String text) {
         try {
-            return md5(text, "", Constants.DEFAULT_CHARSET, true);
+            return md5(text, "", DEFAULT_CHARSET, true);
         } catch (UnsupportedEncodingException ignore) {
             //no happen
             return null;
