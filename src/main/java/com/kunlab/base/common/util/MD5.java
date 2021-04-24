@@ -1,5 +1,9 @@
 package com.kunlab.base.common.util;
 
+import com.sun.istack.internal.NotNull;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -149,7 +153,42 @@ public class MD5 {
         }
     }
 
+    /**
+     * 字节流信息摘要
+     * @param file 文件字节流
+     * @return HexString
+     * @throws IOException 字节流不可用时，抛出异常
+     */
+    public static String md5(@NotNull InputStream file) throws IOException {
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance(DEFAULT_ALGORITHM);
 
+            byte[] buffer = new byte[8 * 1024];
+            int len;
+            while((len=file.read(buffer)) != -1){
+                byte[] tmp = new byte[len];
+                System.arraycopy(buffer,0, tmp, 0, len);
+                messageDigest.update(tmp);
+            }
+
+            buffer = messageDigest.digest();
+
+            StringBuilder result = new StringBuilder();
+            for(byte b : buffer) {
+                int v = b & 0xFF;
+                if(v < 0x10) {
+                    result.append("0");
+                }
+                result.append(Integer.toHexString(v));
+            }
+
+            return result.toString();
+        } catch (NoSuchAlgorithmException ignore) {
+            //no happen
+            return "";
+        }
+
+    }
 
 
 
@@ -210,6 +249,17 @@ public class MD5 {
      */
     public static boolean verify(String text, String md5) {
         return md5.equalsIgnoreCase(md5(text));
+    }
+
+    /**
+     * 字节流验证MD5
+     * @param file 原始字节流
+     * @param md5 希望的散列码
+     * @return true: 通过； false:未通过
+     * @throws IOException file不可用时
+     */
+    public static boolean verify(InputStream file, String md5) throws IOException {
+        return md5.equalsIgnoreCase(md5(file));
     }
 
 }

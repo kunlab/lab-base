@@ -3,7 +3,7 @@ package com.kunlab.base.common.util;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 
 
 /**
@@ -45,6 +45,29 @@ public class MD5Test {
             Assert.assertTrue(MD5.verify(text, key, charsetName, targetHashCode));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void verifyFile() {
+        String charsetName = MD5.DEFAULT_CHARSET;
+        String targetHashCode = "d3d9446802a44259755d38e6d163e820";
+
+        File file = new File("C:\\Users\\ikun\\Desktop\\file.txt");
+        FileInputStream inputStream = null;
+        try {
+            inputStream = new FileInputStream(file);
+            Assert.assertTrue(MD5.verify(inputStream, targetHashCode));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if(inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
