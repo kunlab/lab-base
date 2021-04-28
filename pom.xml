@@ -38,6 +38,12 @@
             <version>${spring.version}</version>
         </dependency>
 
+        <!--<dependency>-->
+            <!--<groupId>com.alibaba</groupId>-->
+            <!--<artifactId>druid</artifactId>-->
+            <!--<version>1.2.6</version>-->
+        <!--</dependency>-->
+
     </dependencies>
 
 
