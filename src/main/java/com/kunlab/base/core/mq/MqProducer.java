@@ -16,4 +16,8 @@ public class MqProducer {
     public <Msg> void execute(RabbitTemplate template, String routingKey, Msg o) {
         template.convertAndSend(routingKey, o);
     }
+
+    public <Msg> void execute(RabbitTemplate template, String exchange, String routingKey, Msg o) {
+        template.convertAndSend(exchange, routingKey, o);
+    }
 }
